@@ -73,7 +73,7 @@ def get_phrase():
         last_phrase = open(resource_path("cleo_data/last_phrase.txt"), "w")
         last_phrase.write(random_phrase)
         last_phrase.close()
-
+        
         return random_phrase
 
 # Get API info
