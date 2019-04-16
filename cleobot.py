@@ -4,12 +4,14 @@
     joe.muzina@gmail.com
     Last updated 4/16/2019
 '''
+       
 import os
 import random
 import tweepy
 import api_data
 
 cleobot_version = "1.1"
+print("\n-----Cleobot v" + cleobot_version + " Initialized-----\n")
 
 # -1 for normal execution, song index for song debugging
 debug = -1
@@ -87,7 +89,6 @@ def get_api(cfg):
 # Gets directory of data files within executable temp directory
 # Credit to max at StackOverflow for this function
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
@@ -112,7 +113,7 @@ else:
     tweet = get_phrase()
     if post_tweet:
         api = get_api(api_data.api_cfg)
-        print("\n-----Cleobot v" + cleobot_version + " Initialized-----\nRandomly selected phrase: \n\n" + tweet + "\n")
+        print("Randomly selected phrase: \n\n" + tweet + "\n")
         api.update_status(tweet)
         if api:
             print("Tweet published successfully!\n-----------------------------------\n")
