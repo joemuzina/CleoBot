@@ -9,6 +9,8 @@ import random
 import tweepy
 import api_data
 
+cleobot_version = "1.1"
+
 # -1 for normal execution, song index for song debugging
 debug = -1
 post_tweet = True
@@ -110,7 +112,9 @@ else:
     tweet = get_phrase()
     if post_tweet:
         api = get_api(api_data.api_cfg)
-        print("\nTweeting phrase:\n" + tweet + "\n")
+        print("\n-----Cleobot v" + cleobot_version + " Initialized-----\nRandomly selected phrase: \n\n" + tweet + "\n")
         api.update_status(tweet)
+        if api:
+            print("Tweet published successfully!\n-----------------------------------\n")
     else:
         print("\nRandomly selected phrase:\n" + tweet + "\n")
